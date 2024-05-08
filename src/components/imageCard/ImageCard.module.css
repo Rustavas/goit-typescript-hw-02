@@ -1,0 +1,6 @@
+.ImageCard {
+  background-size: 100% auto;
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+}
