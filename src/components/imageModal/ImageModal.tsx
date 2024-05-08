@@ -3,12 +3,21 @@ import css from "./ImageModal.module.css";
 
 Modal.setAppElement("#root");
 
-const ImageModal = ({
+interface ImageModalProps {
+  closeModal: () => void;
+  modalIsOpen: boolean;
+  imageSrc: string;
+  imageAltDescription: string;
+  imageAuthor: string;
+  imageLikes: number;
+}
+
+const ImageModal: React.FC<ImageModalProps> = ({
   closeModal,
   modalIsOpen,
   imageSrc = "https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg",
   imageAltDescription = "Regular gallery image",
-  imageAutor = "Unknown",
+  imageAuthor = "Unknown",
   imageLikes = "0",
 }) => {
   return (
@@ -25,7 +34,7 @@ const ImageModal = ({
         </div>
         <div className={css.imageInfo}>
           <p className={css.imageDescr}>
-            Author: <span className={css.imageSpan}>{imageAutor}</span>
+            Author: <span className={css.imageSpan}>{imageAuthor}</span>
           </p>
           <p className={css.imageDescr}>
             Likes: <span className={css.imageSpan}>{imageLikes}</span>

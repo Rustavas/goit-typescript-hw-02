@@ -10,7 +10,19 @@ const searchParams = {
   orientation: "landscape"
 };
 
-const requestPhotosByQuery = async (query, page) => {
+export interface Photos {
+  id: string;
+  urls: {regular: string, small: string};
+  alt_description: string;
+  user: {name: string};
+  likes: number;
+}
+interface Resp {
+  results: Photos[];
+  total: number;
+  total_pages: number;
+}
+const requestPhotosByQuery = async (query: string, page: number): Promise<Resp> => {
   const { data } = await axios.get("/search/photos", {
     params: {
       ...searchParams,
