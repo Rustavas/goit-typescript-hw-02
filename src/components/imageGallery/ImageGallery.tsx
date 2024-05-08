@@ -1,10 +1,8 @@
 import ImageCard from "../imageCard/ImageCard"
 import { Photos } from "../services/api"
-// import { ModalData } from "../../App"
 import { ImageData } from "../imageCard/ImageCard"
 
 import css from "./ImageGallery.module.css"
-
 
 interface ImageGalleryProps {
   photos: Photos[],

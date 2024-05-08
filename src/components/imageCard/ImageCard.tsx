@@ -1,4 +1,3 @@
-// import { ModalData } from "../../App";
 import css from "./ImageCard.module.css"
 
 interface ImageCardProps {

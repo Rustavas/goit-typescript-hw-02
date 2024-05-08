@@ -1,4 +1,3 @@
-import { FormEvent } from "react";
 import css from "./LoadMoreBtn.module.css"
 
 interface LoadMoreBtnProps {

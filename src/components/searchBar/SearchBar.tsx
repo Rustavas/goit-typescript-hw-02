@@ -1,16 +1,16 @@
-import { FormEvent } from "react";
 import { FiSearch } from "react-icons/fi";
 import { IoCloseOutline } from "react-icons/io5";
 import css from "./Searchbar.module.css"
 import toast from "react-hot-toast";
 
 interface SearchBarProps {
-  onSubmit: (arg: string) => void;
+  onSubmit: (searchParams: string) => void;
 }
 const SearchBar: React.FC<SearchBarProps> = ({ onSubmit }) => {
-  const handleSubmit = (evt: FormEvent<HTMLFormElement> ): void=> {
+  const handleSubmit = (evt: React.FormEvent<HTMLFormElement>)=> {
     evt.preventDefault();
-    const searchParams: string = evt.currentTarget.elements.search.value
+    const searchInput = evt.currentTarget.elements.namedItem('search') as HTMLInputElement;
+    const searchParams: string = searchInput.value.trim();
     onSubmit(searchParams)
     if (searchParams === "") {
       toast.error("What are we going to look for?")
